@@ -1,0 +1,13 @@
+<h1 class="title is-1">Index</h1>
+
+<ul class="columns is-multiline">
+  <% restaurants.forEach((restaurant) => { %>
+    <li class="column is-half">
+      <div class="box">
+        <a href="/restaurants/<%= restaurant.id %>"><h3 class="title is-3"><%= restaurant.name %></h3></a>
+        <h4 class="title is-4"><%= restaurant.address %></h4>
+        <p><%= restaurant.country %></p>
+      </div>
+    </li>
+  <% }); %>
+</ul>

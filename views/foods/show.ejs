@@ -1,0 +1,59 @@
+<h1 class="title is-1">Show</h1>
+
+<h2 class="title is-2"><%= food.title %></h2>
+<h3 class="subtitle is-3"><%= food.restaurant.name %> <%= food.restaurant.address %></h3>
+<p><%= food.description %></p>
+
+<a href="/foods/<%= food.id %>/edit" class="button is-info">Edit</a>
+
+<form action="/foods/<%= food.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <button class="button is-danger">Delete</button>
+</form>
+
+
+<form method="POST" action="/foods/<%= food.id %>/comments">
+  <div class="row">
+  <div class="col-6">
+    <label>Comment</label>
+    <textarea name="text" required></textarea>
+  </div>
+<div class="col-6">
+  <div>
+      <label>Post Rating: </label>
+      <label>
+        1<input type="radio" value="1" name="rating">
+      </label>
+      <label>
+        2<input type="radio" value="2" name="rating">
+      </label>
+      <label>
+        3<input type="radio" value="3" name="rating">
+      </label>
+      <label>
+        4<input type="radio" value="4" name="rating">
+      </label>
+      <label>
+        5<input type="radio" value="5" name="rating">
+      </label>
+  </div>
+  <input type="text" value="<%= locals.currentUser.username %>" name="user" readonly>
+    <button class="addButton">Add</button>
+</div>
+</div>
+<ul>
+  <% food.comments.forEach(comment => { %>
+    <div class="row">
+    <li><%= comment.text %> - <%= comment.rating %>/5
+    <p>Added by: <strong><%= comment.user %></strong></p>
+    <% if(comment.user === locals.currentUser.username) { %>
+    <form method="POST" action="/foods/<%= food.id %>/comments/<%= comment.id %>">
+        <input type="hidden" name="_method" value="DELETE" required>
+          <button>Delete</button>
+    </form>
+    <% } %>
+    </li>
+    </div>
+  <% }) %>
+</ul>
+</form>

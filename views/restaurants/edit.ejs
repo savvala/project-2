@@ -1,0 +1,38 @@
+<h1 class="title is-1">Edit</h1>
+
+<div class="columns">
+  <form class="column is-half" method="POST" action="/restaurants/<%= restaurant.id %>">
+    <input type="hidden" name="_method" value="PUT">
+
+    <div class="field">
+      <label for="title">Title</label>
+      <div class="control">
+        <input class="input" type="text" name="title" id="title" value="<%= restaurant.name %>">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="title">Location</label>
+      <div class="control">
+        <div class="select">
+          <select name="restaurant">
+            <% restaurants.forEach((restaurant) => { %>
+              <option value="<%= restaurant.id %>" <% if(restaurant.id === food.restaurant.id) { %>selected<% } %>>
+                <%= restaurant.name %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="title">Description</label>
+      <div class="control">
+        <textarea class="textarea" name="description"><%= restaurant.description %></textarea>
+      </div>
+    </div>
+
+    <button class="button is-primary is-fullwidth">Update</button>
+  </form>
+</div>
