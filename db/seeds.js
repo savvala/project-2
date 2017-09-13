@@ -88,7 +88,7 @@ Restaurant.create([{
       },{
         title: 'Big Mac',
         restaurant: restaurant[2],
-        description: 'Don\'t know why but China have the best Big Mac in the world. Must have something to do with their supply of beef.',
+        description: 'Don\'t know why but China have the best Big Mac in the world',
         image: 'https://c1.staticflickr.com/9/8809/17896291786_564b52e64e_z.jpg'
       },{
         title: 'Beef Wellington',
