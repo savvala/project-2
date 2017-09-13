@@ -1,32 +1,46 @@
-<h1 class="title is-1">New</h1>
+<h1 class="title is-1">New Food</h1>
 
 <div class="columns">
-  <form class="column is-half" method="POST" action="/foods">
+  <form class="column is-half new-food" method="POST" action="/foods">
 
-    <div class="field">
-      <label for="title">Title</label>
-      <div class="control">
-        <input class="input" type="text" name="title" id="title">
-      </div>
-    </div>
+    <p class="newpage">Please choose a restaurant</p>
 
     <div class="field">
       <label for="title">Location</label>
       <div class="control">
-        <div class="label">
+        <div class="select">
           <select name="restaurant">
+            <option selected disabled>Please choose</option>
             <% restaurants.forEach((restaurant) => { %>
               <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
-            <% }) %>
-          </select>
+              <% }) %>
+            </select>
+          </div>
         </div>
+      </div>
+
+      <p class="newpage">Or</p>
+
+      <strong><a href="/restaurants/new">Create a New Restaurant</strong></a>
+
+      <div class="field">
+      <label for="title"></label>
+      <div class="control">
+        <input class="input" type="text" name="title" id="title" placeholder="Name of Food">
       </div>
     </div>
 
     <div class="field">
-      <label for="title">Description</label>
+      <label class="label"></label>
       <div class="control">
-        <textarea class="textarea" name="description"></textarea>
+        <input class="input" name="image" type="text" placeholder="Image URL">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="title"></label>
+      <div class="control">
+        <textarea class="textarea" name="description" placeholder="Description (Characters must be 400 or less)" maxlength=400"></textarea>
       </div>
     </div>
 

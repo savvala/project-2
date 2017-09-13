@@ -7,7 +7,19 @@ const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const secureRoute = require('../lib/secureRoute');
 
-router.get('/', (req, res) => res.render('home'));
+router.get('/', (req, res) => {
+  const images = [
+    'home1.jpg',
+    'home2.JPG',
+    'home3.jpg',
+    'home4.jpg',
+    'home5.jpg',
+    'home6.jpg',
+    'home7.jpg'
+  ];
+  const randomImage = `/assets/images/${images[Math.floor(Math.random() * images.length)]}`;
+  return res.render('home', { isHompage: true, randomImage });
+});
 
 
 router.route('/foods')
@@ -53,6 +65,12 @@ router.route('/foods/:id/comments')
 
 router.route('/foods/:id/comments/:commentId')
   .delete(secureRoute, foods.commentsDelete);
+
+router.route('/restaurants/:id/comments')
+  .post(secureRoute, restaurants.commentsCreate);
+
+router.route('/restaurants/:id/comments/:commentId')
+  .delete(secureRoute, restaurants.commentsDelete);
 
 router.get('/logout', sessions.delete);
 

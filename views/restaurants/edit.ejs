@@ -12,17 +12,7 @@
     </div>
 
     <div class="field">
-      <label for="title">Location</label>
       <div class="control">
-        <div class="select">
-          <select name="restaurant">
-            <% restaurants.forEach((restaurant) => { %>
-              <option value="<%= restaurant.id %>" <% if(restaurant.id === food.restaurant.id) { %>selected<% } %>>
-                <%= restaurant.name %>
-              </option>
-            <% }) %>
-          </select>
-        </div>
       </div>
     </div>
 

@@ -108,6 +108,38 @@ function restaurantsDelete(req, res) {
     });
 }
 
+function restaurantsCommentsCreate(req, res) {
+  Restaurant
+    .findById(req.params.id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+        model: 'User'
+      }
+    })
+    .exec()
+    .then(restaurant => {
+      restaurant.comments.push(req.body);
+      return restaurant.save();
+    })
+    .then(restaurant => res.redirect(`/restaurants/${restaurant.id}`))
+    .catch(err => res.render('error', {err}));
+}
+
+function restaurantsCommentsDelete(req, res) {
+  Restaurant
+    .findById(req.params.id)
+    .exec()
+    .then(restaurants => {
+      const comment = restaurants.comments.id(req.params.commentId);
+      comment.remove();
+      return restaurants.save();
+    })
+    .then(restaurants => res.redirect(`/restaurants/${restaurants.id}`))
+    .catch(err => res.render('error', {err}));
+}
+
 module.exports = {
   index: restaurantsIndex,
   show: restaurantsShow,
@@ -115,5 +147,8 @@ module.exports = {
   create: restaurantsCreate,
   edit: restaurantsEdit,
   update: restaurantsUpdate,
-  delete: restaurantsDelete
+  delete: restaurantsDelete,
+  commentsCreate: restaurantsCommentsCreate,
+  commentsDelete: restaurantsCommentsDelete
+
 };
