@@ -49,7 +49,7 @@ Restaurant.create([{
   address: '189 Queen\'s Rd, London SE15 2ND',
   name: 'Morely\'s Fried Chicken',
   country: 'UK',
-  description: 'My favourite Chicken Shop in London'
+  description: 'Best Chicken Shop in London'
 },{
   address: '5 Chome-14-12 Fukushima, Fukushima Ward, Osaka, Osaka Prefecture 553-0003, Japan',
   name: 'Yoshinoya',
@@ -59,7 +59,7 @@ Restaurant.create([{
   address: '5 Throgmorton St, London EC2N 2AD',
   name: 'Le Relais de Venise l\'Entrecôte - City',
   country: 'London',
-  description: 'Very French'
+  description: ''
 },{
   address: '64 St Giles High St, London WC2H 8LE',
   name: 'Kanada-ya',
@@ -88,12 +88,12 @@ Restaurant.create([{
       },{
         title: 'Big Mac',
         restaurant: restaurant[2],
-        description: 'Don\'t know why but China have the best Big Mac in the world',
+        description: 'China have the best Big Macs in the world',
         image: 'https://c1.staticflickr.com/9/8809/17896291786_564b52e64e_z.jpg'
       },{
         title: 'Beef Wellington',
         restaurant: restaurant[3],
-        description: 'Solid Beef Wellington.',
+        description: 'Dat Beef Wellington...',
         image: 'http://www.recipes.co.nz/ic/4112420676/Beef%20Wellington.1.jpg'
       },{
         title: 'Bus Stop Bacon Egg Sandwich',
@@ -108,7 +108,7 @@ Restaurant.create([{
       },{
         title: 'Beef Intestines (gopchang)',
         restaurant: restaurant[6],
-        description: 'Friend from Soeul vouches for it, I believe his judgement.',
+        description: 'Friend from Seoul vouches for it, I believe his judgement.',
         image: 'http://contents.visitseoul.net/file_save/art_img/2011/10/20/20111020041745_D.jpg'
       },{
         title: 'Pop-Corn Chicken Meal',
