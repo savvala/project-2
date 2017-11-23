@@ -5,19 +5,19 @@
 <div class="wrapper">
 
 
-
+<div class="food-image" style="background-image:url(<%= food.image %>)"></div>
 <h2 class="title is-2"><%= food.title %></h2>
 <h3 class="subtitle is-3"><%= food.restaurant.name %> <%= food.restaurant.address %></h3>
 <p><%= food.description %></p>
 
+<% if (locals.isAuthenticated){ %>
 <a href="/foods/<%= food.id %>/edit" class="button is-primary is-fullwidth">Edit</a>
-
 <form action="/foods/<%= food.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE"/>
   <button class="button is-danger is-fullwidth">Delete</button>
 </form>
 
-  <% if (locals.isAuthenticated){ %>
+
 <form method="POST" action="/foods/<%= food.id %>/comments">
   <div class="row">
     <div class="col-6">
