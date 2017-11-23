@@ -12,6 +12,7 @@
     <p><%= food.description %></p>
   </div>
 <% }); %>
+<% if (locals.isAuthenticated){ %>
 <a href="/restaurants/<%= restaurant.id %>/edit" class="button is-primary is-fullwidth">Edit</a>
 
 <form action="/restaurants/<%= restaurant.id %>" method="POST">
@@ -19,7 +20,6 @@
   <button class="button is-danger is-fullwidth">Delete</button>
 </form>
 
-<% if (locals.isAuthenticated){ %>
 <form method="POST" action="/restaurants/<%= restaurant.id %>/comments">
 <div class="row">
   <div class="col-6">
